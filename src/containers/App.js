@@ -5,7 +5,7 @@ const App = () => {
   return (
     <>
     <h1>PROYECTO DOCUMENTACIÓN</h1>
-    <h2>development</h2>
+    <h2>otro intento development</h2>
     </>
   );
 };
