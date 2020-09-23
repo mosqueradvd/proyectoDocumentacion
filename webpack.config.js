@@ -26,7 +26,7 @@ module.exports = {
         },
       },
       {
-        test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+        test: /.jpg|png|gif|woff|eot|ttf|mp4|webm$/,
         use: {
           loader: "url-loader",
           options: {
@@ -37,7 +37,7 @@ module.exports = {
         },
       },
       {
-        test: /.svg$/,
+        test: /\.svg$/,
         use: ["@svgr/webpack", "url-loader"],
       },
     ],
