@@ -1,5 +1,5 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -26,22 +26,26 @@ module.exports = {
         },
       },
       {
-        test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
+        test: /.jpg|png|gif|woff|eot|ttf|mp4|webm$/,
         use: {
-          loader: 'url-loader',
+          loader: "url-loader",
           options: {
             limit: 1000,
-            name: '[hash].[ext]',
-            outputPath: 'assets',
+            name: "[hash].[ext]",
+            outputPath: "assets",
           },
         },
-      }, 
+      },
+      {
+        test: /\.svg$/,
+        use: ["@svgr/webpack", "url-loader"],
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-    })
-  ]
+      template: "./public/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
