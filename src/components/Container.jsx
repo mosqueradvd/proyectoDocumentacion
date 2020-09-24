@@ -3,6 +3,10 @@ import { makeStyles, CssBaseline, Hidden } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
 import StyckyFooter from "./StickyFooter";
+import Dashboard from "./Dashboard";
+
+const drawerWidth = 240;
+
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -13,6 +17,11 @@ const styles = makeStyles((theme) => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing(3),
+    [theme.breakpoints.up("sm")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      
+    },
   },
   toolbar: theme.mixins.toolbar,
 }));
@@ -36,7 +45,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        Contenido pagina
+        <Dashboard />
       </div>
       <StyckyFooter />
     </div>
