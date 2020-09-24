@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { makeStyles, CssBaseline, Hidden } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
+import StyckyFooter from "./StickyFooter";
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
   },
   content: {
     flexGrow: 1,
@@ -35,6 +38,7 @@ const Container = () => {
         <div className={classes.toolbar}></div>
         Contenido pagina
       </div>
+      <StyckyFooter />
     </div>
   );
 };
