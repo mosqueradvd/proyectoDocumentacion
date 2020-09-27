@@ -4,6 +4,9 @@ import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
 import StyckyFooter from "./StickyFooter";
 import Dashboard from "./Dashboard";
+import ListUserAdmin from "./ListUserAdmin";
+import EnhancedTable from "../components/EnhancedTable";
+import ListUserSuperAdmin from "../components/ListUserSuperAdmin";
 
 const drawerWidth = 240;
 
@@ -16,11 +19,10 @@ const styles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
+    // padding: theme.spacing(3),
     [theme.breakpoints.up("sm")]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
-      
     },
   },
   toolbar: theme.mixins.toolbar,
@@ -45,7 +47,10 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        <Dashboard />
+
+        <EnhancedTable />
+        <ListUserAdmin />
+        <ListUserSuperAdmin />
       </div>
       <StyckyFooter />
     </div>
