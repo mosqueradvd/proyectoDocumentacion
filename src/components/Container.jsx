@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { makeStyles, CssBaseline, Hidden } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
+import UserRegistration from "../components/UserRegistration";
 import StyckyFooter from "./StickyFooter";
 import Dashboard from "./Dashboard";
 import ListUserAdmin from "./ListUserAdmin";
@@ -47,10 +48,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-
-        <EnhancedTable />
         <ListUserAdmin />
-        <ListUserSuperAdmin />
       </div>
       <StyckyFooter />
     </div>
