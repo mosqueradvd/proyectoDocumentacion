@@ -4,7 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 
 import {
-  Paper,
+  Card,
   Grid,
   Select,
   FormControl,
@@ -18,14 +18,16 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
-  paper: {
+  card: {
     padding: theme.spacing(2),
+    textAlign: "initial",
   },
   form: {
     width: "100%",
   },
   formControl: {
     minWidth: "100%",
+    marginTop: theme.spacing(1),
   },
   selectInput: {
     minWidth: 100,
@@ -33,9 +35,24 @@ const useStyles = makeStyles((theme) => ({
   titles: {
     width: "100%",
     marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(1),
+  },
+  adminData: {
+    display: "flex",
+    flexGrow: 1,
+  },
+  adminButton: {
+    width: "100%",
+    marginTop: theme.spacing(1),
+    padding: theme.spacing(1),
   },
   TextField: {
-    margin: "normal",
+    marginTop: theme.spacing(2),
+  },
+  button: {
+    marginTop: "2.5em",
+    display: "flex",
+    justifyContent: "center",
   },
 }));
 
@@ -45,7 +62,7 @@ const UserRegistration = () => {
   return (
     <>
       <div className={classes.root}>
-        <Paper elevation={3} className={classes.paper}>
+        <Card raised className={classes.card}>
           <Grid container spacing={2}>
             <div className={classes.titles}>
               <Typography
@@ -60,18 +77,9 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
+                className={classes.TextField}
                 id="outlined-basic"
-                label="Organización"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={6}>
-              <TextField
-                id="outlined-basic"
-                label="Representante Legal"
+                label="Nombre de la Organización"
                 variant="outlined"
                 fullWidth
               />
@@ -79,6 +87,38 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
+                className={classes.TextField}
+                id="outlined-basic"
+                label="NIT o Documento"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <TextField
+                className={classes.TextField}
+                id="outlined-basic"
+                label="Nombre del Representante Legal"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <FormControl className={classes.formControl}>
+                <InputLabel>Tipo de Documento</InputLabel>
+                <Select className={classes.selectInput}>
+                  <MenuItem>Cédula de Ciudadanía</MenuItem>
+                  <MenuItem>T.I</MenuItem>
+                  <MenuItem>Cédula de Extranjería</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <TextField
+                className={classes.TextField}
                 id="outlined-basic"
                 label="Número de Documento"
                 variant="outlined"
@@ -88,11 +128,33 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
+                className={classes.TextField}
+                id="num-doc"
+                label="Número de Celular"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <TextField
+                className={classes.TextField}
                 id="outlined-basic"
                 label="Correo Electrónico"
                 variant="outlined"
                 fullWidth
               />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <FormControl className={classes.formControl}>
+                <InputLabel>Departamento</InputLabel>
+                <Select className={classes.selectInput}>
+                  <MenuItem>Nariño</MenuItem>
+                  <MenuItem>Nariño</MenuItem>
+                  <MenuItem>Nariño</MenuItem>
+                </Select>
+              </FormControl>
             </Grid>
 
             <Grid item xs={12} sm={6} md={6}>
@@ -109,8 +171,41 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
-                id="outlined-basic"
-                label="NIT o Documento"
+                className={classes.TextField}
+                id="num-doc"
+                label="Resguardo y/o Cabildo"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <div className={classes.adminData}>
+              <div className={classes.titles}>
+                <Typography
+                  color="primary"
+                  component="h1"
+                  variant="h5"
+                  gutterBottom
+                >
+                  Datos del Administrador
+                </Typography>
+              </div>
+              <div className={classes.adminButton}>
+                <Button
+                  color="default"
+                  variant="outlined"
+                  size="small"
+                  fullWidth
+                >
+                  El administrador es el representante legal
+                </Button>
+              </div>
+            </div>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <TextField
+                className={classes.TextField}
+                label="Nombre del Administrador"
                 variant="outlined"
                 fullWidth
               />
@@ -118,7 +213,7 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <FormControl className={classes.formControl}>
-                <InputLabel>Tipo de Documento</InputLabel>
+                <InputLabel variant="standard">Tipo de Documento</InputLabel>
                 <Select className={classes.selectInput}>
                   <MenuItem>Cédula</MenuItem>
                   <MenuItem>T.I</MenuItem>
@@ -128,45 +223,9 @@ const UserRegistration = () => {
             </Grid>
 
             <Grid item xs={12} sm={6} md={6}>
-              <FormControl className={classes.formControl}>
-                <InputLabel>Departamento</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Nariño</MenuItem>
-                  <MenuItem>Nariño</MenuItem>
-                  <MenuItem>Nariño</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-
-            <div className={classes.titles}>
-              <Typography
-                color="primary"
-                component="h1"
-                variant="h5"
-                gutterBottom
-              >
-                Datos del Administrador
-              </Typography>
-            </div>
-
-            <Grid item xs={12} sm={6} md={6}>
               <TextField
-                placeholder="El admin es el representante legal"
-                variant="outlined"
-                fullWidth
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={6}>
-              <TextField
-                label="Nombre del Administrador"
-                variant="outlined"
-                fullWidth
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={6}>
-              <TextField
+                className={classes.TextField}
+                id="num-doc"
                 label="Número de Documento"
                 variant="outlined"
                 fullWidth
@@ -175,26 +234,7 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
-                id="outlined-basic"
-                label="Correo Electrónico"
-                variant="outlined"
-                fullWidth
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={6}>
-              <FormControl className={classes.formControl}>
-                <InputLabel variant="standard">Cédula</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Cédula</MenuItem>
-                  <MenuItem>T.I</MenuItem>
-                  <MenuItem>Cédula de Extranjería</MenuItem>
-                </Select>
-              </FormControl>
-            </Grid>
-
-            <Grid item xs={12} sm={6} md={6}>
-              <TextField
+                className={classes.TextField}
                 label="Número de Celular"
                 variant="outlined"
                 fullWidth
@@ -203,6 +243,17 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
+                className={classes.TextField}
+                id="outlined-basic"
+                label="Correo Electrónico"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6} md={6}>
+              <TextField
+                className={classes.TextField}
                 label="Contraseña"
                 id="standard-password-input"
                 type="password"
@@ -210,12 +261,13 @@ const UserRegistration = () => {
                 fullWidth
               />
             </Grid>
-
-            <Button color="primary" variant="contained" fullWidth>
+          </Grid>
+          <div className={classes.button}>
+            <Button color="primary" variant="contained" size="medium">
               guardar
             </Button>
-          </Grid>
-        </Paper>
+          </div>
+        </Card>
       </div>
     </>
   );
