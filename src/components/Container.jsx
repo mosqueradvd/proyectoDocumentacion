@@ -3,12 +3,9 @@ import { makeStyles, CssBaseline, Hidden, Typography } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
 import UserRegistration from "../components/UserRegistration";
-import StyckyFooter from "./StickyFooter";
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
   },
   content: {
     flexGrow: 1,
@@ -51,7 +48,6 @@ const Container = () => {
         </Typography>
         <UserRegistration />
       </div>
-      <StyckyFooter />
     </div>
   );
 };
