@@ -1,20 +1,36 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { lighten, makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TablePagination from "@material-ui/core/TablePagination";
-import TableRow from "@material-ui/core/TableRow";
-import TableSortLabel from "@material-ui/core/TableSortLabel";
-import Paper from "@material-ui/core/Paper";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TablePagination,
+  TableSortLabel,
+  Paper,
+  Box,
+  Typography,
+  TableRow,
+  TextField,
+  Container,
+} from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import Autocomplete from "@material-ui/lab/Autocomplete";
 
 function createData(id, names, organization, rol, ver) {
   return { id, names, organization, rol, ver };
 }
+
+//datos quemados search
+const organizations = [
+  { title: "Montaña de fuego" },
+  { title: "Modep" },
+  { title: "Polo" },
+  { title: "Tierra de todos" },
+  { title: "udenar" },
+];
 
 const rows = [
   createData(1, "Lennin Ibarra", "udenar", "Administrador"),
@@ -147,6 +163,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
   },
+  container: {
+    backgroundColor: "#cfe8fc",
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
+  },
   paper: {
     width: "100%",
     marginBottom: theme.spacing(2),
@@ -164,6 +185,14 @@ const useStyles = makeStyles((theme) => ({
     position: "absolute",
     top: 20,
     width: 1,
+  },
+  box: {
+    marginBottom: theme.spacing(5),
+  },
+  search: {
+    marginTop: theme.spacing(6),
+    marginBottom: theme.spacing(6),
+    maxWidth: 400,
   },
 }));
 
@@ -217,7 +246,26 @@ export default function EnhancedTable() {
     rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   return (
-    <div className={classes.root}>
+    <Container className={classes.container}>
+      <Box display="flex" justifyContent="center" className={classes.box}>
+        <Typography variant="h4">Listar usuarios</Typography>
+      </Box>
+      <Autocomplete
+        className={classes.search}
+        freeSolo
+        id="free-solo-2-demo"
+        disableClearable
+        options={organizations.map((option) => option.title)}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Buscar organización"
+            margin="normal"
+            variant="outlined"
+            InputProps={{ ...params.InputProps, type: "search" }}
+          />
+        )}
+      />
       <Paper className={classes.paper}>
         <TableContainer>
           <Table
@@ -281,6 +329,6 @@ export default function EnhancedTable() {
           onChangeRowsPerPage={handleChangeRowsPerPage}
         />
       </Paper>
-    </div>
+    </Container>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { makeStyles, CssBaseline, Hidden } from "@material-ui/core";
+import { makeStyles, CssBaseline, Hidden, Typography } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
 import UserRegistration from "../components/UserRegistration";
@@ -14,19 +14,17 @@ const drawerWidth = 240;
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flexDirection: "column",
-    minHeight: "100vh",
   },
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    // padding: theme.spacing(3),
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
+    padding: theme.spacing(10),
+    textAlign: "center",
   },
   toolbar: theme.mixins.toolbar,
+  mainTitle: {
+    marginBottom: "1.5em",
+  },
 }));
 
 const Container = () => {
@@ -48,9 +46,8 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        <ListUserAdmin />
+        <ListUserSuperAdmin />
       </div>
-      <StyckyFooter />
     </div>
   );
 };
