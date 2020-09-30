@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   adminButton: {
-    width: "100%",
+    flexGrow: 1,
     marginTop: theme.spacing(1),
     padding: theme.spacing(1),
   },
@@ -78,7 +78,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="company-name"
                 label="Nombre de la Organización"
                 variant="outlined"
                 fullWidth
@@ -88,7 +88,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="dni"
                 label="NIT o Documento"
                 variant="outlined"
                 fullWidth
@@ -98,7 +98,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="legal-manager"
                 label="Nombre del Representante Legal"
                 variant="outlined"
                 fullWidth
@@ -119,7 +119,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="dni-number"
                 label="Número de Documento"
                 variant="outlined"
                 fullWidth
@@ -129,7 +129,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="cel-number"
                 label="Número de Celular"
                 variant="outlined"
                 fullWidth
@@ -139,7 +139,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="email"
                 label="Correo Electrónico"
                 variant="outlined"
                 fullWidth
@@ -172,39 +172,37 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="safeguard-townhall"
                 label="Resguardo y/o Cabildo"
                 variant="outlined"
                 fullWidth
               />
             </Grid>
 
-            <div className={classes.adminData}>
-              <div className={classes.titles}>
-                <Typography
-                  color="primary"
-                  component="h1"
-                  variant="h5"
-                  gutterBottom
-                >
-                  Datos del Administrador
-                </Typography>
+            <Grid item xs={12} sm={6} md={6}>
+              <div className={classes.adminData}>
+                <div className={classes.titles}>
+                  <Typography
+                    color="primary"
+                    component="h1"
+                    variant="h5"
+                    gutterBottom
+                  >
+                    Datos del Administrador
+                  </Typography>
+                </div>
               </div>
-              <div className={classes.adminButton}>
-                <Button
-                  color="default"
-                  variant="outlined"
-                  size="small"
-                  fullWidth
-                >
-                  El administrador es el representante legal
-                </Button>
-              </div>
+            </Grid>
+            <div className={classes.adminButton}>
+              <Button color="default" variant="outlined" size="small" fullWidth>
+                El administrador es el representante legal
+              </Button>
             </div>
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
+                id="admin-name"
                 label="Nombre del Administrador"
                 variant="outlined"
                 fullWidth
@@ -225,7 +223,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="num-doc-edited"
                 label="Número de Documento"
                 variant="outlined"
                 fullWidth
@@ -235,6 +233,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
+                id="num-cel-edited"
                 label="Número de Celular"
                 variant="outlined"
                 fullWidth
@@ -244,7 +243,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="email-edited"
                 label="Correo Electrónico"
                 variant="outlined"
                 fullWidth
