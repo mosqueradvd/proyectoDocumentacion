@@ -10,7 +10,7 @@ import UserRegistration from "../components/UserRegistration";
 const App = () => {
   return (
     <>
-      <UserRegistration />
+      <Container />
     </>
   );
 };
