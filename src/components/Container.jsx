@@ -2,14 +2,10 @@ import React, { useState } from "react";
 import { makeStyles, CssBaseline, Hidden, Typography } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
-import UserRegistration from "../components/UserRegistration";
-import StyckyFooter from "./StickyFooter";
-import Dashboard from "./Dashboard";
-import ListUserAdmin from "./ListUserAdmin";
-import EnhancedTable from "../components/EnhancedTable";
-import ListUserSuperAdmin from "../components/ListUserSuperAdmin";
-
-const drawerWidth = 240;
+import DashboarSuperAdmin from "../components/SuperAdmin/DashboardSuperAdm";
+import ListUserSuperAdmin from "./SuperAdmin/ListUserSuperAdmin";
+import ModUserInfo from "./SuperAdmin/ModUserInfo";
+import UserRegistration from "./SuperAdmin/UserRegistration";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -46,7 +42,11 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
+
+        <DashboarSuperAdmin />
         <ListUserSuperAdmin />
+        <ModUserInfo />
+        <UserRegistration />
       </div>
     </div>
   );

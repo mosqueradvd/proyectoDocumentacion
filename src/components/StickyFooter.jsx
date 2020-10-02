@@ -6,26 +6,25 @@ import {
   makeStyles,
   Link,
 } from "@material-ui/core";
-
-const drawerWidth = 240;
+import { red } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
+    minHeight: "100vh",
   },
-
+  main: {
+    marginTop: theme.spacing(8),
+    marginBottom: theme.spacing(2),
+  },
   footer: {
-    padding: theme.spacing(2),
-    margin: "auto",
+    padding: theme.spacing(3, 2),
+    marginTop: "auto",
     backgroundColor:
       theme.palette.type === "light"
         ? theme.palette.grey[200]
         : theme.palette.grey[800],
-    [theme.breakpoints.up("sm")]: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-    },
   },
 }));
 
@@ -44,12 +43,16 @@ function Copyright() {
 
 const StyckyFooter = () => {
   const classes = useStyles();
+
   return (
-    <div>
+    <div className={classes.root}>
       <CssBaseline />
+
       <footer className={classes.footer}>
-        <Container component="main" className={classes.main} maxWidth="sm">
-          <Typography>Todos los derechos reservados</Typography>
+        <Container maxWidth="sm">
+          <Typography variant="body1">
+            Implementado por All Nexus SAS
+          </Typography>
           <Copyright />
         </Container>
       </footer>

@@ -13,7 +13,7 @@ import PeopleSharpIcon from "@material-ui/icons/PeopleSharp";
 import HowToRegSharpIcon from "@material-ui/icons/HowToRegSharp";
 import LockSharpIcon from "@material-ui/icons/LockSharp";
 
-const ListsSuperadmin = () => {
+const ListsMenuSuperAdmin = () => {
   return (
     <List component="nav">
       <ListItem button>
@@ -57,4 +57,4 @@ const ListsSuperadmin = () => {
   );
 };
 
-export default ListsSuperadmin;
+export default ListsMenuSuperAdmin;

@@ -15,6 +15,8 @@ import {
   TableRow,
   TextField,
   Container,
+  Grid,
+  Hidden,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@material-ui/lab/Autocomplete";
@@ -92,7 +94,7 @@ const headCells = [
   { id: "names", numeric: false, label: "Nombres y apellidos" },
   { id: "organization", numeric: false, label: "Organización" },
   { id: "rol", numeric: false, label: "Rol" },
-  { id: "ver", numeric: false, label: "ver" },
+  { id: "ver", numeric: false, label: "Ver" },
 ];
 
 function EnhancedTableHead(props) {
@@ -187,7 +189,7 @@ const useStyles = makeStyles((theme) => ({
     width: 1,
   },
   box: {
-    marginBottom: theme.spacing(5),
+    marginBottom: theme.spacing(1),
   },
   search: {
     marginTop: theme.spacing(6),
@@ -248,24 +250,55 @@ export default function EnhancedTable() {
   return (
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
-        <Typography variant="h4">Listar usuarios</Typography>
+        <Typography variant="h4" color="primary">
+          Listar usuarios
+        </Typography>
       </Box>
-      <Autocomplete
-        className={classes.search}
-        freeSolo
-        id="free-solo-2-demo"
-        disableClearable
-        options={organizations.map((option) => option.title)}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Buscar organización"
-            margin="normal"
-            variant="outlined"
-            InputProps={{ ...params.InputProps, type: "search" }}
-          />
-        )}
-      />
+
+      <Hidden only="xs">
+        <Grid container spacing={3}>
+          <Grid item xs></Grid>
+          <Grid item xs></Grid>
+          <Grid item xs>
+            <Autocomplete
+              className={classes.search}
+              freeSolo
+              id="free-solo-2-demo"
+              disableClearable
+              options={organizations.map((option) => option.title)}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Buscar organización"
+                  margin="normal"
+                  variant="outlined"
+                  InputProps={{ ...params.InputProps, type: "search" }}
+                />
+              )}
+            />
+          </Grid>
+        </Grid>
+      </Hidden>
+
+      <Hidden only={["sm", "md", "lg", "xl"]}>
+        <Autocomplete
+          className={classes.search}
+          freeSolo
+          id="free-solo-2-demo"
+          disableClearable
+          options={organizations.map((option) => option.title)}
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              label="Buscar organización"
+              margin="normal"
+              variant="outlined"
+              InputProps={{ ...params.InputProps, type: "search" }}
+            />
+          )}
+        />
+      </Hidden>
+
       <Paper className={classes.paper}>
         <TableContainer>
           <Table

@@ -38,11 +38,6 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     marginTop: theme.spacing(2),
   },
-  // wallpaper: {
-  //   backgroundColor: "red",
-  //   height: "100vh",
-  //   marginTop: "0",
-  // },
 }));
 
 const onSubmit = (data, e) => {
@@ -56,11 +51,6 @@ const Login = () => {
     reValidateMode: "onSubmit",
   });
   return (
-    // <Container
-    //   component="wallpaper"
-    //   maxWidth="xl"
-    //   className={classes.wallpaper}
-    // >
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <Paper elevation={3}>
@@ -134,7 +124,6 @@ const Login = () => {
         </div>
       </Paper>
     </Container>
-    // </Container>
   );
 };
 

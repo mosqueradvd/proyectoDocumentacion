@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles, Drawer, Divider } from "@material-ui/core";
-import ListsSuperadmin from "./ListsSuperadmin";
+import ListMenuSuperAdmin from "./SuperAdmin/ListsMenuSuperAdmin";
 
 const drawerWidth = 240;
 
@@ -15,7 +15,7 @@ const styles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
 }));
 
-const Drawers = ({variant, open, onClose}) => {
+const Drawers = ({ variant, open, onClose }) => {
   const classes = styles();
   return (
     <Drawer
@@ -30,7 +30,7 @@ const Drawers = ({variant, open, onClose}) => {
     >
       <div className={classes.toolbar}></div>
       <Divider />
-      <ListsSuperadmin />
+      <ListMenuSuperAdmin />
     </Drawer>
   );
 };
