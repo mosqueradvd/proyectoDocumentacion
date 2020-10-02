@@ -18,7 +18,7 @@ import {
   Grid,
   Hidden,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+import CreateIcon from "@material-ui/icons/Create";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 function createData(id, names, organization, rol, ver) {
@@ -198,7 +198,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListUserSuperAdmin() {
+export default function ListModifyUserSA() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -251,7 +251,7 @@ export default function ListUserSuperAdmin() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Listar usuarios
+          Modificar usuarios
         </Typography>
       </Box>
 
@@ -339,7 +339,7 @@ export default function ListUserSuperAdmin() {
                       <TableCell align="left">{row.organization}</TableCell>
                       <TableCell align="left">{row.rol}</TableCell>
                       <TableCell align="left">
-                        <SearchIcon />
+                        <CreateIcon />
                       </TableCell>
                     </TableRow>
                   );

@@ -6,6 +6,8 @@ import DashboarSuperAdmin from "../components/SuperAdmin/DashboardSuperAdm";
 import ListUserSuperAdmin from "./SuperAdmin/ListUserSuperAdmin";
 import ModUserInfo from "./SuperAdmin/ModUserInfo";
 import UserRegistration from "./SuperAdmin/UserRegistration";
+import ListModifyUserSA from "./SuperAdmin/ListModifyUserSA";
+import ListEnableDisableUserSA from "./SuperAdmin/ListEnableDisableUserSA";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -47,6 +49,8 @@ const Container = () => {
         <ListUserSuperAdmin />
         <ModUserInfo />
         <UserRegistration />
+        <ListModifyUserSA />
+        <ListEnableDisableUserSA />
       </div>
     </div>
   );
