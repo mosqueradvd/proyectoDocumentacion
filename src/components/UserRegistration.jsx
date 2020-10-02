@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   adminButton: {
-    width: "100%",
+    flexGrow: 1,
     marginTop: theme.spacing(1),
     padding: theme.spacing(1),
   },
@@ -56,8 +56,110 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const mainDocType = {
+  id: 1,
+  name: "DNI",
+};
+
+const docTypes = [
+  {
+    id: 1,
+    name: "Cédula de Ciudadanía",
+  },
+  {
+    id: 2,
+    name: "Tarjeta de Identidad",
+  },
+  {
+    id: 3,
+    name: "Cedula de Extranjería",
+  },
+];
+
+const getDocIndex = (id, docTypes) => {
+  for (let i = 0; i < docTypes.length; i++) {
+    if (docTypes[i].id === id) {
+      return i;
+    }
+  }
+  return "";
+};
+
+const mainDept = {
+  id: 1,
+  name: "Department",
+};
+
+const departments = [
+  {
+    id: 1,
+    name: "Nariño",
+  },
+  {
+    id: 2,
+    name: "Nariño",
+  },
+  {
+    id: 3,
+    name: "Nariño",
+  },
+];
+
+const getDepIndex = (id, departments) => {
+  for (let i = 0; i < departments.length; i++) {
+    if (departments[i].id === id) {
+      return i;
+    }
+  }
+  return "";
+};
+
+const mainTown = {
+  id: 1,
+  name: "Department",
+};
+
+const towns = [
+  {
+    id: 1,
+    name: "Tangua",
+  },
+  {
+    id: 2,
+    name: "Tangua",
+  },
+  {
+    id: 3,
+    name: "Tangua",
+  },
+];
+
+const getTownIndex = (id, towns) => {
+  for (let i = 0; i < towns.length; i++) {
+    if (departments[i].id === id) {
+      return i;
+    }
+  }
+  return "";
+};
+
 const UserRegistration = () => {
   const classes = useStyles();
+  const [dept, setDept] = useState(mainDept);
+  const [doctype, setDoctype] = useState(mainDocType);
+  const [town, setTown] = useState(mainTown);
+
+  const handleDeptChange = (event) => {
+    setDept(event.target.value);
+  };
+
+  const handleDocChange = (event) => {
+    setDoctype(event.target.value);
+  };
+
+  const handleTownChange = (event) => {
+    setTown(event.target.value);
+  };
 
   return (
     <>
@@ -78,7 +180,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="company-name"
                 label="Nombre de la Organización"
                 variant="outlined"
                 fullWidth
@@ -88,7 +190,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="dni"
                 label="NIT o Documento"
                 variant="outlined"
                 fullWidth
@@ -98,7 +200,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="legal-manager"
                 label="Nombre del Representante Legal"
                 variant="outlined"
                 fullWidth
@@ -108,10 +210,19 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <FormControl className={classes.formControl}>
                 <InputLabel>Tipo de Documento</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Cédula de Ciudadanía</MenuItem>
-                  <MenuItem>T.I</MenuItem>
-                  <MenuItem>Cédula de Extranjería</MenuItem>
+                <Select
+                  id="doctype-input"
+                  onChange={handleDocChange}
+                  className={classes.selectInput}
+                  value={docTypes[getDocIndex(doctype.id, docTypes)]}
+                >
+                  {docTypes.map((doc) => {
+                    return (
+                      <MenuItem key={doc.id} value={doc}>
+                        {doc.name}
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
             </Grid>
@@ -119,7 +230,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="dni-number"
                 label="Número de Documento"
                 variant="outlined"
                 fullWidth
@@ -129,7 +240,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="cel-number"
                 label="Número de Celular"
                 variant="outlined"
                 fullWidth
@@ -139,7 +250,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="email"
                 label="Correo Electrónico"
                 variant="outlined"
                 fullWidth
@@ -149,10 +260,19 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <FormControl className={classes.formControl}>
                 <InputLabel>Departamento</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Nariño</MenuItem>
-                  <MenuItem>Nariño</MenuItem>
-                  <MenuItem>Nariño</MenuItem>
+                <Select
+                  id="company-dept"
+                  value={departments[getDepIndex(dept.id, departments)]}
+                  onChange={handleDeptChange}
+                  className={classes.selectInput}
+                >
+                  {departments.map((dept) => {
+                    return (
+                      <MenuItem key={dept.id} value={dept}>
+                        {dept.name}
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
             </Grid>
@@ -160,11 +280,19 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <FormControl className={classes.formControl}>
                 <InputLabel>Municipio</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Tangua</MenuItem>
-                  <MenuItem>Tangua</MenuItem>
-                  <MenuItem>Tangua</MenuItem>
-                  <MenuItem>Tangua</MenuItem>
+                <Select
+                  id="company-town"
+                  value={towns[getTownIndex(town.id, towns)]}
+                  onChange={handleTownChange}
+                  className={classes.selectInput}
+                >
+                  {towns.map((town) => {
+                    return (
+                      <MenuItem key={town.id} value={town}>
+                        {town.name}
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
             </Grid>
@@ -172,39 +300,37 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="safeguard-townhall"
                 label="Resguardo y/o Cabildo"
                 variant="outlined"
                 fullWidth
               />
             </Grid>
 
-            <div className={classes.adminData}>
-              <div className={classes.titles}>
-                <Typography
-                  color="primary"
-                  component="h1"
-                  variant="h5"
-                  gutterBottom
-                >
-                  Datos del Administrador
-                </Typography>
+            <Grid item xs={12} sm={6} md={6}>
+              <div className={classes.adminData}>
+                <div className={classes.titles}>
+                  <Typography
+                    color="primary"
+                    component="h1"
+                    variant="h5"
+                    gutterBottom
+                  >
+                    Datos del Administrador
+                  </Typography>
+                </div>
               </div>
-              <div className={classes.adminButton}>
-                <Button
-                  color="default"
-                  variant="outlined"
-                  size="small"
-                  fullWidth
-                >
-                  El administrador es el representante legal
-                </Button>
-              </div>
+            </Grid>
+            <div className={classes.adminButton}>
+              <Button color="default" variant="outlined" size="small" fullWidth>
+                El administrador es el representante legal
+              </Button>
             </div>
 
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
+                id="admin-name"
                 label="Nombre del Administrador"
                 variant="outlined"
                 fullWidth
@@ -225,7 +351,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="num-doc"
+                id="num-doc-edited"
                 label="Número de Documento"
                 variant="outlined"
                 fullWidth
@@ -235,6 +361,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
+                id="num-cel-edited"
                 label="Número de Celular"
                 variant="outlined"
                 fullWidth
@@ -244,7 +371,7 @@ const UserRegistration = () => {
             <Grid item xs={12} sm={6} md={6}>
               <TextField
                 className={classes.TextField}
-                id="outlined-basic"
+                id="email-edited"
                 label="Correo Electrónico"
                 variant="outlined"
                 fullWidth

@@ -3,6 +3,8 @@ import { makeStyles, CssBaseline, Hidden, Typography } from "@material-ui/core";
 import Navbar from "./Navbar";
 import Drawers from "../components/Drawers";
 import UserRegistration from "../components/UserRegistration";
+import UserInfo from "../components/UserInfo";
+import ModUserInfo from "../components/ModUserInfo";
 const styles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -46,7 +48,9 @@ const Container = () => {
         >
           Registro de Usuarios
         </Typography>
-        <UserRegistration />
+        {/* <UserRegistration /> */}
+        {/* <UserInfo /> */}
+        <ModUserInfo />
       </div>
     </div>
   );
