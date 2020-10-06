@@ -6,6 +6,7 @@ import DashboarSuperAdmin from "../components/SuperAdmin/DashboardSuperAdm";
 import ListUserSuperAdmin from "./SuperAdmin/ListUserSuperAdmin";
 import ModUserInfo from "./SuperAdmin/ModUserInfo";
 import UserRegistration from "./SuperAdmin/UserRegistration";
+import CreateNewProject from "./Admin/CreateNewProject";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -45,8 +46,9 @@ const Container = () => {
 
         <DashboarSuperAdmin />
         <ListUserSuperAdmin />
-        <ModUserInfo />
         <UserRegistration />
+        <ModUserInfo />
+        <CreateNewProject />
       </div>
     </div>
   );
