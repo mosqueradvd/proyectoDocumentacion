@@ -9,6 +9,7 @@ import UserRegistration from "./SuperAdmin/UserRegistration";
 import ListModifyUserSA from "./SuperAdmin/ListModifyUserSA";
 import ListEnableDisableUserSA from "./SuperAdmin/ListEnableDisableUserSA";
 import UserInfo from "./SuperAdmin/userInfo";
+import CreateNewProject from "./Admin/CreateNewProject";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -48,10 +49,11 @@ const Container = () => {
         <UserInfo />
         <DashboarSuperAdmin />
         <ListUserSuperAdmin />
-        <ModUserInfo />
         <UserRegistration />
         <ListModifyUserSA />
         <ListEnableDisableUserSA />
+        <ModUserInfo />
+        <CreateNewProject />
       </div>
     </div>
   );
