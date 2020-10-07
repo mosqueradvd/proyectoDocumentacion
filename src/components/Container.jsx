@@ -7,6 +7,7 @@ import ListUserSuperAdmin from "./SuperAdmin/ListUserSuperAdmin";
 import ModUserInfo from "./SuperAdmin/ModUserInfo";
 import UserRegistration from "./SuperAdmin/UserRegistration";
 import CreateNewProject from "./Admin/CreateNewProject";
+import ProjectInfo from "./Admin/ProjectInfo";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -44,11 +45,12 @@ const Container = () => {
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
 
-        <DashboarSuperAdmin />
+        {/* <DashboarSuperAdmin />
         <ListUserSuperAdmin />
         <UserRegistration />
         <ModUserInfo />
-        <CreateNewProject />
+        <CreateNewProject /> */}
+        <ProjectInfo />
       </div>
     </div>
   );
