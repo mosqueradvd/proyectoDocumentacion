@@ -8,9 +8,11 @@ import ModUserInfo from "./SuperAdmin/ModUserInfo";
 import UserRegistration from "./SuperAdmin/UserRegistration";
 import ListModifyUserSA from "./SuperAdmin/ListModifyUserSA";
 import ListEnableDisableUserSA from "./SuperAdmin/ListEnableDisableUserSA";
-import UserInfo from "./SuperAdmin/userInfo";
+import UserInfo from "./SuperAdmin/UserInfo";
+
 import CreateNewProject from "./Admin/CreateNewProject";
 import ProjectInfo from "./Admin/ProjectInfo";
+import ListUserAdmin from "./Admin/ListUserAdmin";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -47,8 +49,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-
-        <DashboarSuperAdmin />
+        {/* <DashboarSuperAdmin /> */}
         <ListUserSuperAdmin />
         <UserRegistration />
         <ListModifyUserSA />
@@ -56,6 +57,8 @@ const Container = () => {
         <ModUserInfo />
         <CreateNewProject />
         <ProjectInfo />
+        <UserInfo />
+        <ListUserAdmin />
       </div>
     </div>
   );
