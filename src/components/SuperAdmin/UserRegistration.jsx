@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
   },
   TextField: {
-    marginTop: theme.spacing(2),
+    marginTop: theme.spacing(1),
   },
   button: {
     marginTop: "2.5em",
@@ -227,6 +227,7 @@ const UserRegistration = () => {
                 <InputLabel>Tipo de Documento</InputLabel>
                 <Select
                   id="doctype-input"
+                  variant="outlined"
                   onChange={handleDocChange}
                   className={classes.selectInput}
                   value={docTypes[getDocIndex(doctype.id, docTypes)]}
@@ -277,6 +278,7 @@ const UserRegistration = () => {
                 <InputLabel>Departamento</InputLabel>
                 <Select
                   id="company-dept"
+                  variant="outlined"
                   value={departments[getDepIndex(dept.id, departments)]}
                   onChange={handleDeptChange}
                   className={classes.selectInput}
@@ -297,6 +299,7 @@ const UserRegistration = () => {
                 <InputLabel>Municipio</InputLabel>
                 <Select
                   id="company-town"
+                  variant="outlined"
                   value={towns[getTownIndex(town.id, towns)]}
                   onChange={handleTownChange}
                   className={classes.selectInput}
@@ -354,11 +357,21 @@ const UserRegistration = () => {
 
             <Grid item xs={12} sm={6} md={6}>
               <FormControl className={classes.formControl}>
-                <InputLabel variant="standard">Tipo de Documento</InputLabel>
-                <Select className={classes.selectInput}>
-                  <MenuItem>Cédula</MenuItem>
-                  <MenuItem>T.I</MenuItem>
-                  <MenuItem>Cédula de Extranjería</MenuItem>
+                <InputLabel>Tipo de Documento</InputLabel>
+                <Select
+                  id="doctype-input"
+                  variant="outlined"
+                  onChange={handleDocChange}
+                  className={classes.selectInput}
+                  value={docTypes[getDocIndex(doctype.id, docTypes)]}
+                >
+                  {docTypes.map((doc) => {
+                    return (
+                      <MenuItem key={doc.id} value={doc}>
+                        {doc.name}
+                      </MenuItem>
+                    );
+                  })}
                 </Select>
               </FormControl>
             </Grid>
