@@ -17,7 +17,7 @@ import {
   createMuiTheme,
   ThemeProvider,
 } from "@material-ui/core/styles";
-import Checkbox from "../Checkbox";
+import RadioButton from "../RadioButton";
 import CloudDownloadIcon from "@material-ui/icons/CloudDownload";
 
 const theme = createMuiTheme();
@@ -51,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   checkWrapper: {
     width: "100%",
+    margin: theme.spacing(1),
   },
   titles: {
     width: "100%",
@@ -284,7 +285,7 @@ const UserInfo = () => {
             </Typography>
 
             <div className={classes.checkWrapper}>
-              <Checkbox />
+              <RadioButton />
             </div>
 
             <Grid item xs={12} sm={6} md={6}>
