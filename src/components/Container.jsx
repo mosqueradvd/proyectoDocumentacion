@@ -13,6 +13,7 @@ import UserInfo from "./SuperAdmin/UserInfo";
 import CreateNewProject from "./Admin/CreateNewProject";
 import ProjectInfo from "./Admin/ProjectInfo";
 import ListUserAdmin from "./Admin/ListUserAdmin";
+import UploadLetterhead from "./Admin/UploadLetterhead";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -60,6 +61,7 @@ const Container = () => {
         <UserInfo />
 
         <ListUserAdmin />
+        <UploadLetterhead />
       </div>
     </div>
   );
