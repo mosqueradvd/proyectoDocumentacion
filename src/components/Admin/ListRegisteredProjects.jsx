@@ -283,7 +283,7 @@ export default function ListRegisteredProjects() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Listar usuarios
+          Listar proyectos
         </Typography>
       </Box>
 
