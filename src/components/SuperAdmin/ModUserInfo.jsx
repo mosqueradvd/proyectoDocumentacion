@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
   },
   formControl: {
     minWidth: "100%",
-    marginTop: theme.spacing(1),
   },
   selectInput: {
     minWidth: 100,
@@ -167,6 +166,7 @@ const ModUserInfo = () => {
                   <Select
                     id="doctype-input"
                     onChange={handleDocChange}
+                    variant="outlined"
                     className={classes.selectInput}
                     value={docTypes[getDocIndex(doctype.id, docTypes)]}
                   >
@@ -206,6 +206,7 @@ const ModUserInfo = () => {
                   <InputLabel>Rol</InputLabel>
                   <Select
                     id="user-rol"
+                    variant="outlined"
                     onChange={handleRolChange}
                     className={classes.selectInput}
                     value={roles[getRolIndex(rol.id, roles)]}
