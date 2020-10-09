@@ -12,6 +12,7 @@ import UserInfo from "./SuperAdmin/userInfo";
 import CreateNewProject from "./Admin/CreateNewProject";
 import ProjectInfo from "./Admin/ProjectInfo";
 import EnableDisableUserA from "./Admin/EnableDisableUserA";
+import ModifyProjectA from "./Admin/ModifyProjectA";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -58,6 +59,7 @@ const Container = () => {
         <CreateNewProject />
         <ProjectInfo />
         <EnableDisableUserA />
+        <ModifyProjectA />
       </div>
     </div>
   );
