@@ -19,7 +19,8 @@ import {
   TableRow,
   Paper,
 } from "@material-ui/core";
-import Checkbox from "../Checkbox";
+// import Checkbox from "../Checkbox";
+import RadioButton from "../RadioButton";
 import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   container: {
-    backgroundColor: "#F8F9FC",
+    backgroundColor: "#cfe8fc",
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
   },
@@ -73,6 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   checkWrapper: {
     width: "100%",
+    margin: theme.spacing(2),
   },
   tableContainer: {
     marginTop: theme.spacing(2),
@@ -281,7 +283,7 @@ const CreateNewProject = () => {
               </Typography>
             </div>
             <div className={classes.checkWrapper}>
-              <Checkbox />
+              <RadioButton />
             </div>
 
             <Grid item xs={12} sm={6} md={6}>
@@ -373,7 +375,7 @@ const CreateNewProject = () => {
 
             <div className={classes.titles}>
               <div className={classes.button}>
-                <Button color="primary" variant="contained">
+                <Button color="primary" variant="contained" fullWidth>
                   guardar
                 </Button>
               </div>

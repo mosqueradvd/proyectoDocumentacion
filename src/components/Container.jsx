@@ -12,10 +12,15 @@ import UserInfo from "./SuperAdmin/UserInfo";
 
 import CreateNewProject from "./Admin/CreateNewProject";
 import ProjectInfo from "./Admin/ProjectInfo";
+
+import EnableDisableUserA from "./Admin/EnableDisableUserA";
+import ModifyProjectA from "./Admin/ModifyProjectA";
+
 import ListUserAdmin from "./Admin/ListUserAdmin";
 import UploadLetterhead from "./Admin/UploadLetterhead";
 import ListRegisteredProjects from "./Admin/ListRegisteredProjects";
 import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAdmin";
+
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -60,12 +65,17 @@ const Container = () => {
         <ModUserInfo />
         <CreateNewProject />
         <ProjectInfo />
+
+        <EnableDisableUserA />
+        <ModifyProjectA />
+
         <UserInfo />
 
         <ListUserAdmin />
         <UploadLetterhead />
         <ListRegisteredProjects />
         <ListEnableDisableprojectsAdmin />
+
       </div>
     </div>
   );
