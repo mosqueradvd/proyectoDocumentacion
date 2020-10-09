@@ -8,11 +8,19 @@ import ModUserInfo from "./SuperAdmin/ModUserInfo";
 import UserRegistration from "./SuperAdmin/UserRegistration";
 import ListModifyUserSA from "./SuperAdmin/ListModifyUserSA";
 import ListEnableDisableUserSA from "./SuperAdmin/ListEnableDisableUserSA";
-import UserInfo from "./SuperAdmin/userInfo";
+import UserInfo from "./SuperAdmin/UserInfo";
+
 import CreateNewProject from "./Admin/CreateNewProject";
 import ProjectInfo from "./Admin/ProjectInfo";
+
 import EnableDisableUserA from "./Admin/EnableDisableUserA";
 import ModifyProjectA from "./Admin/ModifyProjectA";
+
+import ListUserAdmin from "./Admin/ListUserAdmin";
+import UploadLetterhead from "./Admin/UploadLetterhead";
+import ListRegisteredProjects from "./Admin/ListRegisteredProjects";
+import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAdmin";
+
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -49,8 +57,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-
-        <DashboarSuperAdmin />
+        {/* <DashboarSuperAdmin /> */}
         <ListUserSuperAdmin />
         <UserRegistration />
         <ListModifyUserSA />
@@ -58,8 +65,17 @@ const Container = () => {
         <ModUserInfo />
         <CreateNewProject />
         <ProjectInfo />
+
         <EnableDisableUserA />
         <ModifyProjectA />
+
+        <UserInfo />
+
+        <ListUserAdmin />
+        <UploadLetterhead />
+        <ListRegisteredProjects />
+        <ListEnableDisableprojectsAdmin />
+
       </div>
     </div>
   );
