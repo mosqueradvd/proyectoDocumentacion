@@ -20,7 +20,7 @@ import ListUserAdmin from "./Admin/ListUserAdmin";
 import UploadLetterhead from "./Admin/UploadLetterhead";
 import ListRegisteredProjects from "./Admin/ListRegisteredProjects";
 import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAdmin";
-
+import ListGenerateCertificate from "./Admin/ListGenerateCertificate";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -57,7 +57,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        {/* <DashboarSuperAdmin /> */}
+        <DashboarSuperAdmin />
         <ListUserSuperAdmin />
         <UserRegistration />
         <ListModifyUserSA />
@@ -75,6 +75,7 @@ const Container = () => {
         <UploadLetterhead />
         <ListRegisteredProjects />
         <ListEnableDisableprojectsAdmin />
+        <ListGenerateCertificate />
 
       </div>
     </div>
