@@ -257,7 +257,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListGenerateCertificate() {
+export default function ListGenerateCertificateOperator() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");

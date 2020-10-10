@@ -21,6 +21,7 @@ import UploadLetterhead from "./Admin/UploadLetterhead";
 import ListRegisteredProjects from "./Admin/ListRegisteredProjects";
 import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAdmin";
 import ListGenerateCertificate from "./Admin/ListGenerateCertificate";
+import ListGenerateCertificateOperator from "./Operator/ListGenerateCertificateOperator";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -76,7 +77,7 @@ const Container = () => {
         <ListRegisteredProjects />
         <ListEnableDisableprojectsAdmin />
         <ListGenerateCertificate />
-
+        <ListGenerateCertificateOperator />
       </div>
     </div>
   );
