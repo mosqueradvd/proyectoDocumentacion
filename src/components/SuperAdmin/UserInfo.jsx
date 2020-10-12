@@ -46,6 +46,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const user = {
+  id: 1,
+  name: "Lennin Geovanny Ibarra Gonzalez",
+  organizacion: "Montaña de Fuego",
+  tipoDocumento: "Cedula de ciudadanía",
+  numeroDocumento: "3154415599",
+  email: "gerencia@allnexus.com.co",
+  celular: "3154415599",
+  estado: "Activo",
+  rol: "Administrador",
+};
+
 const UserInfo = () => {
   const classes = useStyles();
 
@@ -80,7 +92,7 @@ const UserInfo = () => {
                     color="initial"
                     className={classes.userInfo}
                   >
-                    Lennin Geovany Ibarra Gonzáles
+                    {user.name}
                   </Typography>
                 </ThemeProvider>
               </Grid>
@@ -99,7 +111,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  Tierra de Fuego
+                  {user.organizacion}
                 </Typography>
               </Grid>
 
@@ -117,7 +129,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  Cédula
+                  {user.tipoDocumento}
                 </Typography>
               </Grid>
 
@@ -135,7 +147,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  1307111206
+                  {user.numeroDocumento}
                 </Typography>
               </Grid>
 
@@ -153,7 +165,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  gerencia@allnexus.com.co
+                  {user.email}
                 </Typography>
               </Grid>
 
@@ -171,7 +183,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  315 441 5598
+                  {user.celular}
                 </Typography>
               </Grid>
 
@@ -189,7 +201,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  Activo
+                  {user.estado}
                 </Typography>
               </Grid>
 
@@ -207,7 +219,7 @@ const UserInfo = () => {
                   color="initial"
                   className={classes.userInfo}
                 >
-                  Administrador
+                  {user.rol}
                 </Typography>
               </Grid>
             </Grid>
