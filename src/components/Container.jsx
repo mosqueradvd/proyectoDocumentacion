@@ -25,6 +25,7 @@ import ListGenerateCertificateOperator from "./Operator/ListGenerateCertificateO
 import ModifyProyectInformation from "./Admin/ModifyProyectInformation";
 import RegisterUserAdmin from "./Admin/RegisterUserAdmin";
 import ModifyUserInfoAdmin from "./Admin/ModifyUserInfoAdmin";
+import DashboardAdmin from "./Admin/DashboardAdmin";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -61,7 +62,8 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
-        <ModifyProyectInformation />
+        <DashboardAdmin />
+        {/* <ModifyProyectInformation />
         <DashboarSuperAdmin />
         <ListUserSuperAdmin />
         <UserRegistration />
@@ -83,7 +85,7 @@ const Container = () => {
         <ListGenerateCertificate />
         <ListGenerateCertificateOperator />
         <RegisterUserAdmin />
-        <ModifyUserInfoAdmin />
+        <ModifyUserInfoAdmin /> */}
       </div>
     </div>
   );
