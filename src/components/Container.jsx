@@ -63,7 +63,7 @@ const Container = () => {
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
         <DashboardAdmin />
-        {/* <ModifyProyectInformation />
+        <ModifyProyectInformation />
         <DashboarSuperAdmin />
         <ListUserSuperAdmin />
         <UserRegistration />
@@ -85,7 +85,7 @@ const Container = () => {
         <ListGenerateCertificate />
         <ListGenerateCertificateOperator />
         <RegisterUserAdmin />
-        <ModifyUserInfoAdmin /> */}
+        <ModifyUserInfoAdmin />
       </div>
     </div>
   );
