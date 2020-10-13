@@ -135,7 +135,7 @@ const ModUserInfo = () => {
               gutterBottom
               className={classes.tipography}
             >
-              Registro de usuarios
+              Modificar información usuario
             </Typography>
           </Box>
           <Card raised className={classes.card}>

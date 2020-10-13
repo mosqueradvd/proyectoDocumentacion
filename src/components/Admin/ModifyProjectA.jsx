@@ -18,48 +18,107 @@ import {
   Grid,
   Hidden,
 } from "@material-ui/core";
-import CreateIcon from "@material-ui/icons/Create";
+import EditIcon from "@material-ui/icons/Edit";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-function createData(id, projectName, projectType, formulatedBy, edit) {
-  return { id, projectName, projectType, formulatedBy, edit };
+function createData(
+  id,
+  namesProject,
+  typeProject,
+  costProject,
+  nameProfesional,
+  editar
+) {
+  return {
+    id,
+    namesProject,
+    typeProject,
+    costProject,
+    nameProfesional,
+    editar,
+  };
 }
 
+//datos quemados search
 const projects = [
   { title: "Proyecto panelero" },
-  { title: "Tecnología" },
-  { title: "Juegos autóctonos" },
   { title: "Cultivo de café especial" },
+  { title: "Construción carretera" },
   { title: "Derechos de la mujer" },
+  { title: "Computadores para educar" },
 ];
 
 const rows = [
-  createData(1, "Proyecto panelero", "Productivo", "Geovanny Ibarra"),
-  createData(2, "Cultivo de café especial", "Productivo", "Ciro Meneses"),
-  createData(3, "Construcción cartera", "Infraestructura", "Geovanny Ibarra"),
-  createData(4, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(5, "Derechos de la mujer", "Derecho propio", "Geovanny Ibarra"),
-  createData(6, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(7, "Cultivo de café especial", "Productivo", "Ciro Meneses"),
-  createData(8, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(9, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(10, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(11, "Cultivo de café especial", "Productivo", "Ciro Meneses"),
-  createData(12, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(13, "Construcción cartera", "Infraestructura", "Geovanny Ibarra"),
-  createData(14, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(15, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(16, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(17, "Proyecto panelero", "Productivo", "Geovanny Ibarra"),
-  createData(18, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(19, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(20, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(21, "Derechos de la mujer", "Derecho propio", "Geovanny Ibarra"),
-  createData(22, "Juegos autóctonos", "Cultura", "Ciro Meneses"),
-  createData(23, "Proyecto panelero", "Productivo", "Geovanny Ibarra"),
-  createData(24, "Cultivo de café especial", "Productivo", "Ciro Meneses"),
-  createData(25, "Tecnonolgía", "Otro", "Ciro Meneses"),
-  createData(26, "Derechos de la mujer", "Derecho propio", "Geovanny Ibarra"),
+  createData(
+    1,
+    "Proyecto panelero",
+    "Productivo",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    2,
+    "Cultivo de café especial",
+    "Productivo",
+    "380.000.000",
+    "Valentina Martinez"
+  ),
+  createData(
+    3,
+    "Construción carretera",
+    "Infraestructura",
+    "5.000.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    4,
+    "Derechos de la mujer",
+    "Derecho propio",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    5,
+    "Computadores para educar",
+    "Otro",
+    "3.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    6,
+    "Proyecto frutos de mora",
+    "Productivo",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    7,
+    "Cultivo fresa",
+    "Productivo",
+    "3.000.000",
+    "Valentina Martinez"
+  ),
+  createData(
+    8,
+    "Remodelación escuela rural",
+    "Infraestructura",
+    "5.000.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    9,
+    "Derechos de los niños",
+    "Derecho propio",
+    "300.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    10,
+    "Paz con justicia social",
+    "Otro",
+    "3.000.000",
+    "Ciro Meneses"
+  ),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -90,10 +149,11 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: "id", numeric: true, label: "Número" },
-  { id: "projectName", numeric: false, label: "Nombre del Poyecto" },
-  { id: "projectType", numeric: false, label: "Tipo de Proyecto" },
-  { id: "formulatedBy", numeric: false, label: "Formulado por" },
-  { id: "edit", numeric: false, label: "Editar" },
+  { id: "namesProject", numeric: false, label: "Nombre del proyecto" },
+  { id: "typeProject", numeric: false, label: "Tipo de proyecto" },
+  { id: "costProject", numeric: false, label: "Valor del proyecto" },
+  { id: "nameProfesional", numeric: false, label: "Formulado por" },
+  { id: "editar", numeric: false, label: "Editar" },
 ];
 
 function EnhancedTableHead(props) {
@@ -140,6 +200,26 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
+const useToolbarStyles = makeStyles((theme) => ({
+  root: {
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(1),
+  },
+  highlight:
+    theme.palette.type === "light"
+      ? {
+          color: theme.palette.secondary.main,
+          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
+        }
+      : {
+          color: theme.palette.text.primary,
+          backgroundColor: theme.palette.secondary.dark,
+        },
+  title: {
+    flex: "1 1 100%",
+  },
+}));
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -161,7 +241,7 @@ const useStyles = makeStyles((theme) => ({
     clip: "rect(0 0 0 0)",
     height: 1,
     margin: -1,
-    overflow: "hidden",
+    oeditarflow: "hidden",
     padding: 0,
     position: "absolute",
     top: 20,
@@ -177,7 +257,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ModifyProjectA() {
+export default function ListRegisteredProjects() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -190,26 +270,6 @@ export default function ModifyProjectA() {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
-
-  const handleClick = (event, id) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-
-    setSelected(newSelected);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -248,7 +308,7 @@ export default function ModifyProjectA() {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Filtrar"
+                  label="Buscar proyecto"
                   margin="normal"
                   variant="outlined"
                   InputProps={{ ...params.InputProps, type: "search" }}
@@ -269,7 +329,7 @@ export default function ModifyProjectA() {
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Filtrar"
+              label="Buscar proyecto"
               margin="normal"
               variant="outlined"
               InputProps={{ ...params.InputProps, type: "search" }}
@@ -303,7 +363,6 @@ export default function ModifyProjectA() {
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -314,11 +373,12 @@ export default function ModifyProjectA() {
                       <TableCell component="th" id={labelId} scope="row">
                         {row.id}
                       </TableCell>
-                      <TableCell align="left">{row.projectName}</TableCell>
-                      <TableCell align="left">{row.projectType}</TableCell>
-                      <TableCell align="left">{row.formulatedBy}</TableCell>
+                      <TableCell align="left">{row.namesProject}</TableCell>
+                      <TableCell align="left">{row.typeProject}</TableCell>
+                      <TableCell align="left">{row.costProject}</TableCell>
+                      <TableCell align="left">{row.nameProfesional}</TableCell>
                       <TableCell align="left">
-                        <CreateIcon />
+                        <EditIcon />
                       </TableCell>
                     </TableRow>
                   );
