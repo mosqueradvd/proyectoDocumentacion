@@ -22,6 +22,7 @@ import ListRegisteredProjects from "./Admin/ListRegisteredProjects";
 import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAdmin";
 import ListGenerateCertificate from "./Admin/ListGenerateCertificate";
 import ListGenerateCertificateOperator from "./Operator/ListGenerateCertificateOperator";
+import ModifyProyectInformation from "./Admin/ModifyProyectInformation";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -58,6 +59,7 @@ const Container = () => {
 
       <div className={classes.content}>
         <div className={classes.toolbar}></div>
+        <ModifyProyectInformation />
         <DashboarSuperAdmin />
         <ListUserSuperAdmin />
         <UserRegistration />
