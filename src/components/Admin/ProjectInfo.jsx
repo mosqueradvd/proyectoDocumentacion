@@ -1,6 +1,7 @@
 import React from "react";
 import {
   Card,
+  Container,
   Typography,
   Grid,
   Table,
@@ -10,6 +11,7 @@ import {
   TableHead,
   TableRow,
   Paper,
+  Box,
 } from "@material-ui/core";
 import {
   withStyles,
@@ -35,6 +37,11 @@ theme.typography.h5 = {
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+  },
+  container: {
+    backgroundColor: "#F8F9FC",
+    marginBottom: theme.spacing(3),
+    padding: theme.spacing(2),
   },
   card: {
     textAlign: "initial",
@@ -63,6 +70,10 @@ const useStyles = makeStyles((theme) => ({
   },
   downloadFile: {
     cursor: "pointer",
+  },
+  box: {
+    marginBottom: theme.spacing(5),
+    textAlign: "center",
   },
 }));
 
@@ -99,295 +110,309 @@ const UserInfo = () => {
 
   return (
     <>
-      <div className={classes.root}>
-        <Card raised className={classes.card}>
-          <Typography variant="h4" color="primary" gutterBottom>
-            Datos del Proyecto
-          </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={6} sm={6} md={6}>
-              <ThemeProvider theme={theme}>
+      <Container className={classes.container}>
+        <div className={classes.root}>
+          <Card raised className={classes.card}>
+            <Box className={classes.box}>
+              <Typography
+                variant="h4"
+                color="primary"
+                component="h1"
+                className={classes.tipography}
+              >
+                Información del Proyecto
+              </Typography>
+            </Box>
+            <Typography variant="h4" color="primary" gutterBottom>
+              Datos del Proyecto
+            </Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={6} sm={6} md={6}>
+                <ThemeProvider theme={theme}>
+                  <Typography
+                    variant="h6"
+                    color="primary"
+                    gutterBottom
+                    className={classes.typography}
+                  >
+                    Nombre del Proyecto
+                  </Typography>
+                  <Typography
+                    variant="h6"
+                    color="initial"
+                    className={classes.userInfo}
+                  >
+                    Proyecto Panelero
+                  </Typography>
+                </ThemeProvider>
+              </Grid>
+
+              <Grid item xs={6} sm={6} md={6}>
                 <Typography
                   variant="h6"
                   color="primary"
                   gutterBottom
                   className={classes.typography}
                 >
-                  Nombre del Proyecto
+                  Tipo de Proyecto
                 </Typography>
                 <Typography
                   variant="h6"
                   color="initial"
                   className={classes.userInfo}
                 >
-                  Proyecto Panelero
+                  Productivo
                 </Typography>
-              </ThemeProvider>
-            </Grid>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Tipo de Proyecto
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Productivo
-              </Typography>
-            </Grid>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Ubicación del Proyecto
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  Tangua
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Ubicación del Proyecto
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Tangua
-              </Typography>
-            </Grid>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Valor en letras del Proyecto
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  Trescientos millones de Pesos
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Valor en letras del Proyecto
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Trescientos millones de Pesos
-              </Typography>
-            </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Valor en Números del Proyecto
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  $ 300.000.000
+                </Typography>
+              </Grid>
 
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Valor en Números del Proyecto
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                $ 300.000.000
-              </Typography>
-            </Grid>
+              <div className={classes.titles}>
+                <Typography variant="h5" color="primary" gutterBottom>
+                  Datos del estructurador del proyecto
+                </Typography>
+              </div>
 
-            <div className={classes.titles}>
-              <Typography variant="h5" color="primary" gutterBottom>
-                Datos del estructurador del proyecto
-              </Typography>
-            </div>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Nombre del estructurador
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  Lennin Geovanny Ibarra González
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Nombre del estructurador
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Lennin Geovanny Ibarra González
-              </Typography>
-            </Grid>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Teléfono del estructurador
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  314 441 5599
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Teléfono del estructurador
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                314 441 5599
-              </Typography>
-            </Grid>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Dirección del estructurador
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  Administrador
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Dirección del estructurador
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Administrador
-              </Typography>
-            </Grid>
+              <Grid item xs={6} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Email del estructurador
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  ing.lennin@gmail.com
+                </Typography>
+              </Grid>
 
-            <Grid item xs={6} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Email del estructurador
+              <div className={classes.titles}>
+                <Typography variant="h5" color="primary" gutterBottom>
+                  Datos de quien registró el proyecto
+                </Typography>
+              </div>
+              <Typography variant="h6" color="initial">
+                ¿Quien registró el proyecto es el dueño de esta cuenta?
               </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                ing.lennin@gmail.com
-              </Typography>
-            </Grid>
 
-            <div className={classes.titles}>
-              <Typography variant="h5" color="primary" gutterBottom>
-                Datos de quien registró el proyecto
-              </Typography>
-            </div>
-            <Typography variant="h6" color="initial">
-              ¿Quien registró el proyecto es el dueño de esta cuenta?
-            </Typography>
+              <div className={classes.checkWrapper}>
+                <RadioButton />
+              </div>
 
-            <div className={classes.checkWrapper}>
-              <RadioButton />
-            </div>
+              <Grid item xs={12} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Nombre de quien registra el proyecto
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  Lennin Geovanny Ibarra González
+                </Typography>
+              </Grid>
 
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Nombre de quien registra el proyecto
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                Lennin Geovanny Ibarra González
-              </Typography>
-            </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Teléfono de quien registra
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  314 441 5599
+                </Typography>
+              </Grid>
 
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Teléfono de quien registra
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                314 441 5599
-              </Typography>
-            </Grid>
+              <Grid item xs={12} sm={6} md={6}>
+                <Typography
+                  variant="h6"
+                  color="primary"
+                  gutterBottom
+                  className={classes.typography}
+                >
+                  Email de quien registra
+                </Typography>
+                <Typography
+                  variant="h6"
+                  color="initial"
+                  className={classes.userInfo}
+                >
+                  ing.lennin@gmail.com
+                </Typography>
+              </Grid>
 
-            <Grid item xs={12} sm={6} md={6}>
-              <Typography
-                variant="h6"
-                color="primary"
-                gutterBottom
-                className={classes.typography}
-              >
-                Email de quien registra
-              </Typography>
-              <Typography
-                variant="h6"
-                color="initial"
-                className={classes.userInfo}
-              >
-                ing.lennin@gmail.com
-              </Typography>
-            </Grid>
+              <div className={classes.titles}>
+                <Typography variant="h4" color="primary" gutterBottom>
+                  Archivos adjuntos del proyecto
+                </Typography>
+              </div>
 
-            <div className={classes.titles}>
-              <Typography variant="h4" color="primary" gutterBottom>
-                Archivos adjuntos del proyecto
-              </Typography>
-            </div>
-
-            <TableContainer
-              component={Paper}
-              elevation={1}
-              className={classes.tableContainer}
-            >
-              <Table className={classes.table} aria-label="docs">
-                <TableHead>
-                  <TableRow>
-                    <StyledTabletCell align="center">#</StyledTabletCell>
-                    <StyledTabletCell align="center">
-                      Nombre del Archivo
-                    </StyledTabletCell>
-                    <StyledTabletCell align="center">
-                      Categoría del Archivo
-                    </StyledTabletCell>
-                    <StyledTabletCell align="center">
-                      Descargar
-                    </StyledTabletCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map((files) => (
-                    <TableRow key={files.id}>
-                      <TableCell align="center">{files.id}</TableCell>
-                      <TableCell align="center">{files.fileName}</TableCell>
-                      <TableCell align="center">{files.fileCategory}</TableCell>
-                      <TableCell
-                        align="center"
-                        className={classes.downloadFile}
-                      >
-                        {files.downloadFile}
-                      </TableCell>
+              <TableContainer
+                component={Paper}
+                elevation={1}
+                className={classes.tableContainer}
+              >
+                <Table className={classes.table} aria-label="docs">
+                  <TableHead>
+                    <TableRow>
+                      <StyledTabletCell align="center">#</StyledTabletCell>
+                      <StyledTabletCell align="center">
+                        Nombre del Archivo
+                      </StyledTabletCell>
+                      <StyledTabletCell align="center">
+                        Categoría del Archivo
+                      </StyledTabletCell>
+                      <StyledTabletCell align="center">
+                        Descargar
+                      </StyledTabletCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Grid>
-        </Card>
-      </div>
+                  </TableHead>
+                  <TableBody>
+                    {rows.map((files) => (
+                      <TableRow key={files.id}>
+                        <TableCell align="center">{files.id}</TableCell>
+                        <TableCell align="center">{files.fileName}</TableCell>
+                        <TableCell align="center">
+                          {files.fileCategory}
+                        </TableCell>
+                        <TableCell
+                          align="center"
+                          className={classes.downloadFile}
+                        >
+                          {files.downloadFile}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
+          </Card>
+        </div>
+      </Container>
     </>
   );
 };
