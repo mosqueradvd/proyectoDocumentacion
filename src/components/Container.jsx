@@ -23,6 +23,7 @@ import ListEnableDisableprojectsAdmin from "./Admin/ListEnableDisabledprojectsAd
 import ListGenerateCertificate from "./Admin/ListGenerateCertificate";
 import ListGenerateCertificateOperator from "./Operator/ListGenerateCertificateOperator";
 import ModifyProyectInformation from "./Admin/ModifyProyectInformation";
+import RegisterUserAdmin from "./Admin/RegisterUserAdmin";
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -80,6 +81,7 @@ const Container = () => {
         <ListEnableDisableprojectsAdmin />
         <ListGenerateCertificate />
         <ListGenerateCertificateOperator />
+        <RegisterUserAdmin />
       </div>
     </div>
   );
