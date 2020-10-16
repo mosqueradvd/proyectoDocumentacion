@@ -1,7 +1,8 @@
 import React from "react";
 import { makeStyles, Drawer, Divider } from "@material-ui/core";
 import ListMenuSuperAdmin from "./SuperAdmin/ListsMenuSuperAdmin";
-
+import ListMenuAdm from "./Admin/ListsMenuAdm";
+import ListMenuOperator from "./Operator/ListsMenuOperator";
 const drawerWidth = 240;
 
 const styles = makeStyles((theme) => ({
@@ -31,6 +32,8 @@ const Drawers = ({ variant, open, onClose }) => {
       <div className={classes.toolbar}></div>
       <Divider />
       <ListMenuSuperAdmin />
+      <ListMenuAdm />
+      <ListMenuOperator />
     </Drawer>
   );
 };

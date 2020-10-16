@@ -152,7 +152,7 @@ const getTownIndex = (id, towns) => {
   return "";
 };
 
-const UserRegistration = () => {
+const CreateUserRegistrationSA = () => {
   const classes = useStyles();
   const [dept, setDept] = useState(mainDept);
   const [doctype, setDoctype] = useState(mainDocType);
@@ -428,4 +428,4 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export default CreateUserRegistrationSA;

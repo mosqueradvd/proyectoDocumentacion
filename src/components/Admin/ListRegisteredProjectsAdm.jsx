@@ -21,46 +21,97 @@ import {
 import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
-function createData(id, names, organization, rol, ver) {
-  return { id, names, organization, rol, ver };
+function createData(
+  id,
+  namesProject,
+  typeProject,
+  costProject,
+  nameProfesional,
+  ver
+) {
+  return { id, namesProject, typeProject, costProject, nameProfesional, ver };
 }
 
 //datos quemados search
-const organizations = [
-  { title: "Montaña de fuego" },
-  { title: "Modep" },
-  { title: "Polo" },
-  { title: "Tierra de todos" },
-  { title: "udenar" },
+const projects = [
+  { title: "Proyecto panelero" },
+  { title: "Cultivo de café especial" },
+  { title: "Construción carretera" },
+  { title: "Derechos de la mujer" },
+  { title: "Computadores para educar" },
 ];
 
 const rows = [
-  createData(1, "Lennin Ibarra", "udenar", "Administrador"),
-  createData(2, "Valentina Martinez", "Montaña de Fuego", "Administrador"),
-  createData(3, "Deisy Rosero", "Tierra de todos", "Administrador"),
-  createData(4, "Marta Melo", "Modep", "Administrador"),
-  createData(5, "Diego Ojeda", "udenar", "Operador"),
-  createData(6, "Leidy Burbano", "Polo", "Administrador"),
-  createData(7, "Ciro Meneses", "udenar", "Administrador"),
-  createData(8, "Hilda Gonzalez", "udenar", "Administrador"),
-  createData(9, "Marta Melo", "Modep", "Administrador"),
-  createData(10, "Diego Ojeda", "udenar", "Operador"),
-  createData(11, "Leidy Burbano", "Polo", "Administrador"),
-  createData(12, "Ciro Meneses", "udenar", "Administrador"),
-  createData(13, "Hilda Gonzalez", "udenar", "Administrador"),
-  createData(14, "Lennin Ibarra", "udenar", "Administrador"),
-  createData(15, "Valentina Martinez", "Montaña de Fuego", "Administrador"),
-  createData(16, "Deisy Rosero", "Tierra de todos", "Administrador"),
-  createData(17, "Marta Melo", "Modep", "Administrador"),
-  createData(18, "Diego Ojeda", "udenar", "Operador"),
-  createData(19, "Leidy Burbano", "Polo", "Administrador"),
-  createData(20, "Ciro Meneses", "udenar", "Administrador"),
-  createData(21, "Hilda Gonzalez", "udenar", "Administrador"),
-  createData(22, "Marta Melo", "Modep", "Administrador"),
-  createData(23, "Diego Ojeda", "udenar", "Operador"),
-  createData(24, "Leidy Burbano", "Polo", "Administrador"),
-  createData(25, "Ciro Meneses", "udenar", "Administrador"),
-  createData(26, "Hilda Gonzalez", "udenar", "Administrador"),
+  createData(
+    1,
+    "Proyecto panelero",
+    "Productivo",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    2,
+    "Cultivo de café especial",
+    "Productivo",
+    "380.000.000",
+    "Valentina Martinez"
+  ),
+  createData(
+    3,
+    "Construción carretera",
+    "Infraestructura",
+    "5.000.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    4,
+    "Derechos de la mujer",
+    "Derecho propio",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    5,
+    "Computadores para educar",
+    "Otro",
+    "3.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    6,
+    "Proyecto frutos de mora",
+    "Productivo",
+    "300.000.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    7,
+    "Cultivo fresa",
+    "Productivo",
+    "3.000.000",
+    "Valentina Martinez"
+  ),
+  createData(
+    8,
+    "Remodelación escuela rural",
+    "Infraestructura",
+    "5.000.000.000",
+    "Ciro Meneses"
+  ),
+  createData(
+    9,
+    "Derechos de los niños",
+    "Derecho propio",
+    "300.000",
+    "Lennin Ibarra"
+  ),
+  createData(
+    10,
+    "Paz con justicia social",
+    "Otro",
+    "3.000.000",
+    "Ciro Meneses"
+  ),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -91,9 +142,10 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: "id", numeric: true, label: "Número" },
-  { id: "names", numeric: false, label: "Nombres y apellidos" },
-  { id: "organization", numeric: false, label: "Organización" },
-  { id: "rol", numeric: false, label: "Rol" },
+  { id: "namesProject", numeric: false, label: "Nombre del proyecto" },
+  { id: "typeProject", numeric: false, label: "Tipo de proyecto" },
+  { id: "costProject", numeric: false, label: "Valor del proyecto" },
+  { id: "nameProfesional", numeric: false, label: "Formulado por" },
   { id: "ver", numeric: false, label: "Ver" },
 ];
 
@@ -198,7 +250,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListUserSuperAdmin() {
+export default function ListRegisteredProjectsAdm() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -231,7 +283,7 @@ export default function ListUserSuperAdmin() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Listar usuarios
+          Listar proyectos
         </Typography>
       </Box>
 
@@ -245,11 +297,11 @@ export default function ListUserSuperAdmin() {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={organizations.map((option) => option.title)}
+              options={projects.map((option) => option.title)}
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Buscar organización"
+                  label="Buscar proyecto"
                   margin="normal"
                   variant="outlined"
                   InputProps={{ ...params.InputProps, type: "search" }}
@@ -266,11 +318,11 @@ export default function ListUserSuperAdmin() {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={organizations.map((option) => option.title)}
+          options={projects.map((option) => option.title)}
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Buscar organización"
+              label="Buscar proyecto"
               margin="normal"
               variant="outlined"
               InputProps={{ ...params.InputProps, type: "search" }}
@@ -314,9 +366,10 @@ export default function ListUserSuperAdmin() {
                       <TableCell component="th" id={labelId} scope="row">
                         {row.id}
                       </TableCell>
-                      <TableCell align="left">{row.names}</TableCell>
-                      <TableCell align="left">{row.organization}</TableCell>
-                      <TableCell align="left">{row.rol}</TableCell>
+                      <TableCell align="left">{row.namesProject}</TableCell>
+                      <TableCell align="left">{row.typeProject}</TableCell>
+                      <TableCell align="left">{row.costProject}</TableCell>
+                      <TableCell align="left">{row.nameProfesional}</TableCell>
                       <TableCell align="left">
                         <SearchIcon />
                       </TableCell>

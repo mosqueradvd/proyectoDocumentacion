@@ -18,13 +18,14 @@ import {
   Grid,
   Hidden,
 } from "@material-ui/core";
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import CreateIcon from "@material-ui/icons/Create";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 function createData(id, names, organization, rol, ver) {
   return { id, names, organization, rol, ver };
 }
 
+//datos quemados search
 const organizations = [
   { title: "Montaña de fuego" },
   { title: "Modep" },
@@ -177,7 +178,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function EnableDisableUserA() {
+export default function ListModifyUserAdm() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -190,26 +191,6 @@ export default function EnableDisableUserA() {
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
-  };
-
-  const handleClick = (event, id) => {
-    const selectedIndex = selected.indexOf(id);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, id);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-
-    setSelected(newSelected);
   };
 
   const handleChangePage = (event, newPage) => {
@@ -230,7 +211,7 @@ export default function EnableDisableUserA() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Habilitar / Deshabilitar usuarios
+          Modificar usuarios
         </Typography>
       </Box>
 
@@ -303,7 +284,6 @@ export default function EnableDisableUserA() {
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.id)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -318,7 +298,7 @@ export default function EnableDisableUserA() {
                       <TableCell align="left">{row.organization}</TableCell>
                       <TableCell align="left">{row.rol}</TableCell>
                       <TableCell align="left">
-                        <CheckCircleOutlineIcon color="primary" />
+                        <CreateIcon />
                       </TableCell>
                     </TableRow>
                   );

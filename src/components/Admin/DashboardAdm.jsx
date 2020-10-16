@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardAdmin = () => {
+const DashboardAdm = () => {
   const classes = useStyles();
 
   return (
@@ -139,4 +139,4 @@ const DashboardAdmin = () => {
   );
 };
 
-export default DashboardAdmin;
+export default DashboardAdm;

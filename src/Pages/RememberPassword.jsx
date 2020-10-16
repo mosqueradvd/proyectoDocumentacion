@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { useForm, Controller } from "react-hook-form";
 import {
@@ -9,7 +10,6 @@ import {
   Divider,
   TextField,
   Button,
-  Link,
   Avatar,
 } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
@@ -60,7 +60,7 @@ const RememberPassword = () => {
             Banco de proyectos
             <Divider />
           </Typography>
-          
+
           <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
             <TextField
               name="email"
@@ -88,7 +88,7 @@ const RememberPassword = () => {
             >
               Recordar
             </Button>
-            <Link>Cancelar</Link>
+            <Link to="/">Cancelar</Link>
           </form>
         </div>
       </Paper>

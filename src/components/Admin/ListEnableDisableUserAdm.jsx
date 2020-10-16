@@ -18,26 +18,39 @@ import {
   Grid,
   Hidden,
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 
 function createData(id, names, organization, rol, ver) {
   return { id, names, organization, rol, ver };
 }
 
-//datos quemados search
-const users = [
-  { user: "Lennin Ibarra" },
-  { user: "Valentina Martinez" },
-  { user: "Diego Ojeda" },
-  { user: "Ciro Meneses" },
+const organizations = [
+  { title: "Montaña de fuego" },
+  { title: "Modep" },
+  { title: "Polo" },
+  { title: "Tierra de todos" },
+  { title: "udenar" },
 ];
 
 const rows = [
-  createData(1, "Lennin Ibarra", "Montaña de Fuego", "Administrador"),
-  createData(2, "Valentina Martinez", "Montaña de Fuego", "Operador"),
-  createData(3, "Diego Ojeda", "Montaña de Fuego", "Operador"),
-  createData(4, "Ciro Meneses", "Montaña de Fuego", "Operador"),
+  createData(1, "Lennin Ibarra", "udenar", "Administrador"),
+  createData(2, "Valentina Martinez", "Montaña de Fuego", "Administrador"),
+  createData(3, "Deisy Rosero", "Tierra de todos", "Administrador"),
+  createData(4, "Marta Melo", "Modep", "Administrador"),
+  createData(5, "Diego Ojeda", "udenar", "Operador"),
+  createData(6, "Leidy Burbano", "Polo", "Administrador"),
+  createData(7, "Ciro Meneses", "udenar", "Administrador"),
+  createData(8, "Hilda Gonzalez", "udenar", "Administrador"),
+  createData(9, "Marta Melo", "Modep", "Administrador"),
+  createData(10, "Diego Ojeda", "udenar", "Operador"),
+  createData(11, "Leidy Burbano", "Polo", "Administrador"),
+  createData(12, "Ciro Meneses", "udenar", "Administrador"),
+  createData(13, "Hilda Gonzalez", "udenar", "Administrador"),
+  createData(14, "Lennin Ibarra", "udenar", "Administrador"),
+  createData(15, "Valentina Martinez", "Montaña de Fuego", "Administrador"),
+  createData(16, "Deisy Rosero", "Tierra de todos", "Administrador"),
+  createData(17, "Marta Melo", "Modep", "Administrador"),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -118,26 +131,6 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-const useToolbarStyles = makeStyles((theme) => ({
-  root: {
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(1),
-  },
-  highlight:
-    theme.palette.type === "light"
-      ? {
-          color: theme.palette.secondary.main,
-          backgroundColor: lighten(theme.palette.secondary.light, 0.85),
-        }
-      : {
-          color: theme.palette.text.primary,
-          backgroundColor: theme.palette.secondary.dark,
-        },
-  title: {
-    flex: "1 1 100%",
-  },
-}));
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -175,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListUserAdmin() {
+export default function ListEnableDisableUserAdm() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -189,6 +182,8 @@ export default function ListUserAdmin() {
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
+
+  
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -208,7 +203,7 @@ export default function ListUserAdmin() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Listar usuarios
+          Habilitar / Deshabilitar usuarios
         </Typography>
       </Box>
 
@@ -222,11 +217,11 @@ export default function ListUserAdmin() {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={users.map((option) => option.user)}
+              options={organizations.map((option) => option.title)}
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Buscar usuario"
+                  label="Buscar organización"
                   margin="normal"
                   variant="outlined"
                   InputProps={{ ...params.InputProps, type: "search" }}
@@ -243,11 +238,11 @@ export default function ListUserAdmin() {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={users.map((option) => option.user)}
+          options={organizations.map((option) => option.title)}
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Buscar usuario"
+              label="Buscar organización"
               margin="normal"
               variant="outlined"
               InputProps={{ ...params.InputProps, type: "search" }}
@@ -281,6 +276,7 @@ export default function ListUserAdmin() {
                   return (
                     <TableRow
                       hover
+                      
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -295,7 +291,7 @@ export default function ListUserAdmin() {
                       <TableCell align="left">{row.organization}</TableCell>
                       <TableCell align="left">{row.rol}</TableCell>
                       <TableCell align="left">
-                        <SearchIcon />
+                        <CheckCircleOutlineIcon color="primary" />
                       </TableCell>
                     </TableRow>
                   );

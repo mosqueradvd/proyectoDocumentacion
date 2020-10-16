@@ -110,7 +110,7 @@ const getRolIndex = (id, roles) => {
   return "";
 };
 
-const ModUserInfo = () => {
+const ModUserInfoSA = () => {
   const classes = useStyles();
   const [doctype, setDoctype] = useState(mainDocType);
   const [rol, setRol] = useState(mainRol);
@@ -251,4 +251,4 @@ const ModUserInfo = () => {
   );
 };
 
-export default ModUserInfo;
+export default ModUserInfoSA;

@@ -58,7 +58,7 @@ const user = {
   rol: "Administrador",
 };
 
-const UserInfo = () => {
+const UserInfoSA = () => {
   const classes = useStyles();
 
   return (
@@ -230,4 +230,4 @@ const UserInfo = () => {
   );
 };
 
-export default UserInfo;
+export default UserInfoSA;

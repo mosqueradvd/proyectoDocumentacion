@@ -106,7 +106,7 @@ const getRolIndex = (id, roles) => {
   return "";
 };
 
-const RegisterUserAdmin = () => {
+const CreateNewUserAdm = () => {
   const classes = useStyles();
   const [doctype, setDoctype] = useState(mainDocType);
   const [rol, setRol] = useState(mainRol);
@@ -131,7 +131,7 @@ const RegisterUserAdmin = () => {
               gutterBottom
               className={classes.tipography}
             >
-              Registar usuario
+              Registrar usuario
             </Typography>
           </Box>
           <Card raised className={classes.card}>
@@ -247,4 +247,4 @@ const RegisterUserAdmin = () => {
   );
 };
 
-export default RegisterUserAdmin;
+export default CreateNewUserAdm;

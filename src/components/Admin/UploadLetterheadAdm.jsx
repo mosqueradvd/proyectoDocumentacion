@@ -27,7 +27,7 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-const UploadLetterhead = () => {
+const UploadLetterheadAdm = () => {
   const classes = styles();
   return (
     <Container className={classes.container}>
@@ -61,4 +61,4 @@ const UploadLetterhead = () => {
   );
 };
 
-export default UploadLetterhead;
+export default UploadLetterheadAdm;

@@ -136,7 +136,7 @@ const getProjIndex = (id, projecTypes) => {
   return "";
 };
 
-const CreateNewProject = () => {
+const CreateNewProjectAdm = () => {
   const classes = useStyles();
   const [projectype, setProjecttype] = useState(mainProjectType);
 
@@ -387,4 +387,4 @@ const CreateNewProject = () => {
   );
 };
 
-export default CreateNewProject;
+export default CreateNewProjectAdm;

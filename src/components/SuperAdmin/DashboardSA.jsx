@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DashboardSuperAdmin = () => {
+const DashboardSA = () => {
   const classes = useStyles();
   return (
     <Container className={classes.container}>
@@ -45,4 +45,4 @@ const DashboardSuperAdmin = () => {
     </Container>
   );
 };
-export default DashboardSuperAdmin;
+export default DashboardSA;

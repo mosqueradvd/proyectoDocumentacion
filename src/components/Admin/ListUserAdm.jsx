@@ -18,100 +18,26 @@ import {
   Grid,
   Hidden,
 } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 
-function createData(
-  id,
-  namesProject,
-  typeProject,
-  costProject,
-  nameProfesional,
-  ver
-) {
-  return { id, namesProject, typeProject, costProject, nameProfesional, ver };
+function createData(id, names, organization, rol, ver) {
+  return { id, names, organization, rol, ver };
 }
 
 //datos quemados search
-const projects = [
-  { title: "Proyecto panelero" },
-  { title: "Cultivo de café especial" },
-  { title: "Construción carretera" },
-  { title: "Derechos de la mujer" },
-  { title: "Computadores para educar" },
+const users = [
+  { user: "Lennin Ibarra" },
+  { user: "Valentina Martinez" },
+  { user: "Diego Ojeda" },
+  { user: "Ciro Meneses" },
 ];
 
 const rows = [
-  createData(
-    1,
-    "Proyecto panelero",
-    "Productivo",
-    "300.000.000",
-    "Lennin Ibarra"
-  ),
-  createData(
-    2,
-    "Cultivo de café especial",
-    "Productivo",
-    "380.000.000",
-    "Valentina Martinez"
-  ),
-  createData(
-    3,
-    "Construción carretera",
-    "Infraestructura",
-    "5.000.000.000",
-    "Ciro Meneses"
-  ),
-  createData(
-    4,
-    "Derechos de la mujer",
-    "Derecho propio",
-    "300.000.000",
-    "Lennin Ibarra"
-  ),
-  createData(
-    5,
-    "Computadores para educar",
-    "Otro",
-    "3.000.000",
-    "Ciro Meneses"
-  ),
-  createData(
-    6,
-    "Proyecto frutos de mora",
-    "Productivo",
-    "300.000.000",
-    "Lennin Ibarra"
-  ),
-  createData(
-    7,
-    "Cultivo fresa",
-    "Productivo",
-    "3.000.000",
-    "Valentina Martinez"
-  ),
-  createData(
-    8,
-    "Remodelación escuela rural",
-    "Infraestructura",
-    "5.000.000.000",
-    "Ciro Meneses"
-  ),
-  createData(
-    9,
-    "Derechos de los niños",
-    "Derecho propio",
-    "300.000",
-    "Lennin Ibarra"
-  ),
-  createData(
-    10,
-    "Paz con justicia social",
-    "Otro",
-    "3.000.000",
-    "Ciro Meneses"
-  ),
+  createData(1, "Lennin Ibarra", "Montaña de Fuego", "Administrador"),
+  createData(2, "Valentina Martinez", "Montaña de Fuego", "Operador"),
+  createData(3, "Diego Ojeda", "Montaña de Fuego", "Operador"),
+  createData(4, "Ciro Meneses", "Montaña de Fuego", "Operador"),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -142,10 +68,9 @@ function stableSort(array, comparator) {
 
 const headCells = [
   { id: "id", numeric: true, label: "Número" },
-  { id: "namesProject", numeric: false, label: "Nombre del proyecto" },
-  { id: "typeProject", numeric: false, label: "Tipo de proyecto" },
-  { id: "costProject", numeric: false, label: "Valor del proyecto" },
-  { id: "nameProfesional", numeric: false, label: "Formulado por" },
+  { id: "names", numeric: false, label: "Nombres y apellidos" },
+  { id: "organization", numeric: false, label: "Organización" },
+  { id: "rol", numeric: false, label: "Rol" },
   { id: "ver", numeric: false, label: "Ver" },
 ];
 
@@ -250,7 +175,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListEnableDisableprojectsAdmin() {
+export default function ListUserAdm() {
   const classes = useStyles();
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("calories");
@@ -283,7 +208,7 @@ export default function ListEnableDisableprojectsAdmin() {
     <Container className={classes.container}>
       <Box display="flex" justifyContent="center" className={classes.box}>
         <Typography variant="h4" color="primary">
-          Habilitar / deshabilitar proyecto
+          Listar usuarios
         </Typography>
       </Box>
 
@@ -297,11 +222,11 @@ export default function ListEnableDisableprojectsAdmin() {
               freeSolo
               id="free-solo-2-demo"
               disableClearable
-              options={projects.map((option) => option.title)}
+              options={users.map((option) => option.user)}
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Buscar proyecto"
+                  label="Buscar usuario"
                   margin="normal"
                   variant="outlined"
                   InputProps={{ ...params.InputProps, type: "search" }}
@@ -318,11 +243,11 @@ export default function ListEnableDisableprojectsAdmin() {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={projects.map((option) => option.title)}
+          options={users.map((option) => option.user)}
           renderInput={(params) => (
             <TextField
               {...params}
-              label="Buscar proyecto"
+              label="Buscar usuario"
               margin="normal"
               variant="outlined"
               InputProps={{ ...params.InputProps, type: "search" }}
@@ -366,12 +291,11 @@ export default function ListEnableDisableprojectsAdmin() {
                       <TableCell component="th" id={labelId} scope="row">
                         {row.id}
                       </TableCell>
-                      <TableCell align="left">{row.namesProject}</TableCell>
-                      <TableCell align="left">{row.typeProject}</TableCell>
-                      <TableCell align="left">{row.costProject}</TableCell>
-                      <TableCell align="left">{row.nameProfesional}</TableCell>
+                      <TableCell align="left">{row.names}</TableCell>
+                      <TableCell align="left">{row.organization}</TableCell>
+                      <TableCell align="left">{row.rol}</TableCell>
                       <TableCell align="left">
-                        <CheckCircleOutlineIcon />
+                        <SearchIcon />
                       </TableCell>
                     </TableRow>
                   );

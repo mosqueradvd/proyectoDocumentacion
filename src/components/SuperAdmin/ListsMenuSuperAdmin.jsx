@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   List,
   ListItem,
@@ -16,37 +17,37 @@ import LockSharpIcon from "@material-ui/icons/LockSharp";
 const ListsMenuSuperAdmin = () => {
   return (
     <List component="nav">
-      <ListItem button>
+      <ListItem button component={Link} to="/dashboardsa">
         <ListItemIcon>
           <HomeIcon />
         </ListItemIcon>
         <ListItemText>Inicio</ListItemText>
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/createuserregistrationsa">
         <ListItemIcon>
           <CreateIcon />
         </ListItemIcon>
-        <ListItemText>Crear usuarios</ListItemText>
+        <ListItemText>Crear organización</ListItemText>
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/listusersa">
         <ListItemIcon>
           <ListIcon />
         </ListItemIcon>
         <ListItemText>Listar usuarios</ListItemText>
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/listmodifyusersa">
         <ListItemIcon>
           <PeopleSharpIcon />
         </ListItemIcon>
         <ListItemText>Modificar usuarios</ListItemText>
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/listenabledisableusersa">
         <ListItemIcon>
           <HowToRegSharpIcon />
         </ListItemIcon>
         <ListItemText>Habilitar/Deshabilitar usuarios</ListItemText>
       </ListItem>
-      <ListItem button>
+      <ListItem button component={Link} to="/">
         <ListItemIcon>
           <LockSharpIcon />
         </ListItemIcon>
