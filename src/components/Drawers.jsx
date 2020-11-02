@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles, Drawer, Divider } from "@material-ui/core";
-import ListMenuSuperAdmin from "./SuperAdmin/ListsMenuSuperAdmin";
-import ListMenuAdm from "./Admin/ListsMenuAdm";
+import ListMenuSuperAdmin from "./Admin/ListsMenuSuperAdmin";
+import ListMenuAdm from "./Client/ListsMenuAdm";
 import ListMenuOperator from "./Operator/ListsMenuOperator";
 const drawerWidth = 240;
 

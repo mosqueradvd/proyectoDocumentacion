@@ -15,7 +15,7 @@ const ListsMenuOperator = () => {
   return (
     <List component="nav">
       <Divider />
-      <ListItem button component={Link} to="/listgeneratecertificateoperator">
+      <ListItem button component={Link} to="/operator/certificates">
         <ListItemIcon>
           <CardMembershipIcon />
         </ListItemIcon>
