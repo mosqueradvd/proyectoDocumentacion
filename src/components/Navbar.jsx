@@ -8,6 +8,7 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
+import { withRouter, useLocation } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -37,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = ({ actionOpen }) => {
   const classes = useStyles();
+
   return (
     <AppBar className={classes.appBar}>
       <Toolbar>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { useLocation } from "react-router-dom";
 import { makeStyles, CssBaseline, Hidden, Typography } from "@material-ui/core";
 
 import Navbar from "../components/Navbar";
@@ -30,17 +30,30 @@ const Layout = ({ children }) => {
 
   const { history } = children;
 
+  const location = useLocation();
+  const currentLocation = location.pathname;
+
   console.log(history);
   return (
     <div className="App">
       <div className={classes.root}>
         <CssBaseline />
-        <Navbar actionOpen={actionOpen} />
+        {currentLocation == "/" ||
+        currentLocation == "/rememberpassword" ? null : (
+          <Navbar actionOpen={actionOpen} />
+        )}
+
         <Hidden xsDown>
-          <Drawers variant="permanent" open={true} />
+          {currentLocation == "/" ||
+          currentLocation == "/rememberpassword" ? null : (
+            <Drawers variant="permanent" open={true} />
+          )}
         </Hidden>
         <Hidden smUp>
-          <Drawers variant="temporary" open={open} onClose={actionOpen} />
+          {currentLocation == "/" ||
+          currentLocation == "/rememberpassword" ? null : (
+            <Drawers variant="temporary" open={open} onClose={actionOpen} />
+          )}
         </Hidden>
 
         <div className={classes.content}>

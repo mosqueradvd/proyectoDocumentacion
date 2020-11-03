@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, withRouter } from "react-router-dom";
 import Layaout from "../components/Layaout";
 import PageLogin from "../Pages/PageLogin";
 import RememberPassword from "../Pages/RememberPassword";
@@ -98,7 +98,11 @@ const App = () => (
           path="/uploadletterheadadm"
           component={PageUploadLetterheadAdm}
         />
-        <Route exact path="/listgeneratecertificateoperator" component={PageListGenerateCertificateOperator} />
+        <Route
+          exact
+          path="/listgeneratecertificateoperator"
+          component={PageListGenerateCertificateOperator}
+        />
         <Route component={NotFound} />
       </Switch>
     </Layaout>
