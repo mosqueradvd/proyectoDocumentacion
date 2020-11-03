@@ -124,7 +124,7 @@ const PageLogin = () => {
               Ingresar
             </Button>
 
-            <Link to="/rememberpassword"> ¿olvido su contrasaña?</Link>
+            <Link to="/rememberpassword"> ¿olvidó su contrasaña?</Link>
           </form>
         </div>
       </Paper>
