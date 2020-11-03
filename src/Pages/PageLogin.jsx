@@ -44,7 +44,6 @@ const onSubmit = (data, e) => {
   e.target.reset();
 };
 
-
 const PageLogin = () => {
   const classes = useStyles();
   const { register, handleSubmit, control, errors } = useForm({
@@ -115,7 +114,7 @@ const PageLogin = () => {
             ></FormControlLabel>
             <Button
               component={Link}
-              to="/dashboardsa"
+              to="/admin/dashboard"
               variant="contained"
               color="primary"
               fullWidth
